@@ -5,7 +5,7 @@ from openrouter import OpenRouter
 load_dotenv()
 client = OpenRouter(api_key=os.getenv("OPENROUTER_API_KEY"))
 
-def get_response(message, model="deepseek/deepseek-v4.1-flash-1017"):
+def get_response(message, model=os.getenv("MODEL")):
     response = client.responses.send(
         model=model,
         input=message
