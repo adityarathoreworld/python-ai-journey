@@ -3,10 +3,9 @@ from dotenv import load_dotenv
 from openrouter import OpenRouter
 
 load_dotenv()
-
+client = OpenRouter(api_key=os.getenv("OPENROUTER_API_KEY"))
 
 def get_response(message, model="openai/gpt-4o-mini"):
-    client = OpenRouter(api_key=os.getenv("OPENROUTER_API_KEY"))
     response = client.responses.send(
         model=model,
         input=message
